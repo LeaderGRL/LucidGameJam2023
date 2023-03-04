@@ -52,23 +52,11 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
             input.interact = false;
             return;
         }
-        if (!hit.transform.GetComponent<Object>().info.isInteractable)
-        {
-            return;
-        }
-        
+
         ShowInteractionUI();
 
         if (!input.interact)
         {
-            return;
-        }
-
-        if (hit.transform.gameObject.name == "Alarm")
-        {
-            GameManager.Instance.ChangeGameState();
-            hit.transform.GetComponent<Object>().info.isInteractable = false;
-            interactionGUI.SetActive(false);
             return;
         }
 

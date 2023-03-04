@@ -27,6 +27,7 @@ public class InteractAlarm : MonoBehaviour, IInteraction
         RaycastHit hitInfo;
         isInteractable = Physics.Raycast(camera.position, camera.TransformDirection(Vector3.forward), out hitInfo, interactionDistance);
         hit = hitInfo;
+        isInteract = input.interact;
         Interact();
     }
 
@@ -50,10 +51,11 @@ public class InteractAlarm : MonoBehaviour, IInteraction
 
         ShowInteractionUI();
 
-        if (!input.interact)
+        if (!isInteract)
         {
             return;
         }
+        Debug.Log("Test");
 
         GameManager.Instance.ChangeGameState();
         interactionGUI.SetActive(false);
