@@ -12,7 +12,7 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": true,
                 },
                 {
                     "name": "Look",
@@ -21,7 +21,7 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": true,
                 },
                 {
                     "name": "Jump",
@@ -31,6 +31,7 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+
                 },
                 {
                     "name": "Sprint",
@@ -45,6 +46,25 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "70a38c3c-cf16-49e9-b4b8-ca077dbf2437",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Crouch",
+                    "type": "Value",
+                    "id": "e772ef2c-83e3-44d4-97d3-a45ec73718cd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Torch",
+                    "type": "Button",
+                    "id": "23f3ba9f-e04e-440c-a50a-bad148749b14",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -236,6 +256,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "65b701aa-392f-4f7f-b033-0be83caa9d39",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "08430f09-038a-4d58-9abe-6325cf11063a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Torch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

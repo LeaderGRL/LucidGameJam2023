@@ -14,6 +14,7 @@ namespace StarterAssets
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 6.0f;
+		public float MoveCrouchSpeed = 2.0f;
 		[Tooltip("Sprint speed of the character in m/s")]
 		public float SprintSpeed = 8.0f;
 		[Tooltip("Rotation speed of the character")]
@@ -63,6 +64,8 @@ namespace StarterAssets
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
+		[SerializeField] private FlashLight flashLight;
+		[SerializeField] private GameObject capsule;
 
 	
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -93,6 +96,7 @@ namespace StarterAssets
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
+
 		}
 
 		private void Start()
@@ -115,8 +119,21 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			Crouch();
+			Torche();
+
 		}
 
+		private void Torche()
+		{
+			if (_input.torch)
+			{
+				flashLight.IsOn = !flashLight.IsOn;
+				flashLight.SwitchTorch();
+				_input.torch = false;
+			}
+			
+		}
 		private void LateUpdate()
 		{
 			CameraRotation();
@@ -155,6 +172,11 @@ namespace StarterAssets
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+
+			if (_input.crouch)
+			{
+				targetSpeed = MoveCrouchSpeed;
+			}
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
@@ -245,6 +267,28 @@ namespace StarterAssets
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
 		}
+
+		private void Crouch()
+		{
+			if (_input.crouch)
+			{
+				capsule.transform.localScale= new Vector3(1, 0.5f,1);
+				GetComponent<CharacterController>().height = 1;
+				return;
+			}
+			if (capsule.transform.localScale.y < 1)
+			{
+                capsule.transform.localScale += new Vector3(0, 5 * Time.deltaTime,0);
+                GetComponent<CharacterController>().height += 10 * Time.deltaTime;
+				return;
+            }
+			/*if (GetComponent<CharacterController>().height != 2) 
+			{
+                GetComponent<CharacterController>().height = 2;
+            }*/
+
+
+        }
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
