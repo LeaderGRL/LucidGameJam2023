@@ -52,7 +52,7 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
             input.interact = false;
             return;
         }
-        
+
         ShowInteractionUI();
 
         if (!input.interact)

@@ -8,4 +8,5 @@ public class ObjectInfo : ScriptableObject
     public int score;
     public float mass;
     public bool isInteractable;
+    public int id;
 }
