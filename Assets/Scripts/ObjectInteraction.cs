@@ -1,6 +1,7 @@
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,11 +15,15 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
     public RaycastHit hit { get; set; }
     public bool isInteractable { get; set; }
     [field: SerializeField] public StarterAssetsInputs input { get; set; }
+    [field: SerializeField] public GameObject interactionGUI { get; set; }
+    [field: SerializeField] public TextMeshProUGUI interactionText { get; set; }
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        interactionGUI.SetActive(false);
+        interactionText.text = "Press to steal";
     }
 
     // Update is called once per frame
@@ -31,25 +36,35 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
     }
 
     public void Interact()
-    {
-        if (!input.interact)
-        {
-            return;
-        }
-        
+    { 
         if (!isInteractable)
         {
+            interactionGUI.SetActive(false);
             input.interact = false;
             return;
         }
-
+        
         if (!hit.transform.gameObject.CompareTag("Object"))
         {
             input.interact = false;
             return;
         }
+        
+        ShowInteractionUI();
 
-        Debug.Log("STILL");
+        if (!input.interact)
+        {
+            return;
+        }
+
+       
+
         hit.transform.gameObject.SetActive(false);
     }
+
+    private void ShowInteractionUI()
+    {
+        interactionGUI.SetActive(true);
+    }
+
 }
