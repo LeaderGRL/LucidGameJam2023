@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(IInteraction))]
 public class ObjectInteraction : MonoBehaviour, IInteraction
 {
-    public float interactionDistance { get; set; }
+    [field: SerializeField] public float interactionDistance { get; set; }
     [field: SerializeField] public Transform camera { get; set; }
     public bool isInteract { get; set; }
 
@@ -32,9 +32,24 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
 
     public void Interact()
     {
-        if (input.interact)
+        if (!input.interact)
         {
-            Debug.Log("test !");
+            return;
         }
+        
+        if (!isInteractable)
+        {
+            input.interact = false;
+            return;
+        }
+
+        if (!hit.transform.gameObject.CompareTag("Object"))
+        {
+            input.interact = false;
+            return;
+        }
+
+        Debug.Log("STILL");
+        hit.transform.gameObject.SetActive(false);
     }
 }
