@@ -64,6 +64,8 @@ namespace StarterAssets
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
+		[SerializeField] private FlashLight flashLight;
+		[SerializeField] private GameObject capsule;
 
 	
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -94,6 +96,7 @@ namespace StarterAssets
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
+
 		}
 
 		private void Start()
@@ -117,8 +120,20 @@ namespace StarterAssets
 			GroundedCheck();
 			Move();
 			Crouch();
+			Torche();
+
 		}
 
+		private void Torche()
+		{
+			if (_input.torch)
+			{
+				flashLight.IsOn = !flashLight.IsOn;
+				flashLight.SwitchTorch();
+				_input.torch = false;
+			}
+			
+		}
 		private void LateUpdate()
 		{
 			CameraRotation();
@@ -257,16 +272,23 @@ namespace StarterAssets
 		{
 			if (_input.crouch)
 			{
-				transform.localScale= new Vector3(1, 0.5f,1);
+				capsule.transform.localScale= new Vector3(1, 0.5f,1);
+				GetComponent<CharacterController>().height = 1;
 				return;
 			}
-			if (transform.localScale.y < 1)
+			if (capsule.transform.localScale.y < 1)
 			{
-                transform.localScale += new Vector3(0, 10 * Time.deltaTime,0);
+                capsule.transform.localScale += new Vector3(0, 5 * Time.deltaTime,0);
+                GetComponent<CharacterController>().height += 10 * Time.deltaTime;
+				return;
             }
-			
+			/*if (GetComponent<CharacterController>().height != 2) 
+			{
+                GetComponent<CharacterController>().height = 2;
+            }*/
 
-		}
+
+        }
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
