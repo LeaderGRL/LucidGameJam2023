@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RemainingTime = 10f;
+        RemainingTime = 60f;
     }
 
     // Update is called once per frame
