@@ -254,7 +254,11 @@ namespace StarterAssets
 				transform.localScale= new Vector3(1, 0.5f,1);
 				return;
 			}
-			transform.localScale = Vector3.one;
+			if (transform.localScale.y < 1)
+			{
+                transform.localScale += new Vector3(0, 10 * Time.deltaTime,0);
+            }
+			
 
 		}
 
