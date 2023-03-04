@@ -115,6 +115,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			Crouch();
 		}
 
 		private void LateUpdate()
@@ -244,6 +245,17 @@ namespace StarterAssets
 			{
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
+		}
+
+		private void Crouch()
+		{
+			if (_input.crouch)
+			{
+				transform.localScale= new Vector3(1, 0.5f,1);
+				return;
+			}
+			transform.localScale = Vector3.one;
+
 		}
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
