@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using Random = System.Random;
@@ -21,7 +22,7 @@ public class ClipBoard : MonoBehaviour
         "Vase",
         "Tableaux",
         "Trophee",
-        "Telecomande",
+        "Manette",
         "Console",
         "Jeux",
         "Chandelier",
@@ -29,7 +30,10 @@ public class ClipBoard : MonoBehaviour
         "Lampe",
         "Clef USB",
         "Poisson",
-        "Chat"
+        "Chat",
+        "Television",
+        "Stereo",
+        "Billets"
         
     };
 
@@ -64,11 +68,27 @@ public class ClipBoard : MonoBehaviour
         for (int i=0; i < _selected.Length; i++)
         {
             do {
-                num = rand.Next(0, 8);
+                num = rand.Next(0, _ArrayObject.Length);
             } while (Array.IndexOf(_selected,(String) _ArrayObject.GetValue(num)) != -1);
             _selected[i] = (String) _ArrayObject.GetValue(num);
             _selectedInt[i] = num;
 
+        }
+    }
+
+    public void CheckTask(int id)
+    {
+        if (!_selectedInt.Contains<int>(id))
+        {
+            return;
+        }
+        for (int i = 0; i < _selectedInt.Length; i++)
+        {
+            if (_selectedInt[i] == id)
+            {
+                Debug.Log(id);
+                tasks[i].fontStyle = FontStyles.Strikethrough;
+            }
         }
     }
 }

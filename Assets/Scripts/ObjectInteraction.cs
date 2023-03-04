@@ -19,6 +19,7 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
     public TextMeshProUGUI scoreUI;
     public Player player;
     public FirstPersonController fps;
+    public ClipBoard clipBoard;
 
 
 
@@ -61,11 +62,13 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
         }
 
         player.score += hit.transform.gameObject.GetComponent<Object>().info.score;
-        player.mass += hit.transform.gameObject.GetComponent<Object>().info.mass / 100;
-        fps.MoveSpeed -= hit.transform.gameObject.GetComponent<Object>().info.mass / 100;
-        fps.SprintSpeed -= hit.transform.gameObject.GetComponent<Object>().info.mass / 100;
+        player.mass += hit.transform.gameObject.GetComponent<Object>().info.mass / 500;
+        fps.MoveSpeed -= hit.transform.gameObject.GetComponent<Object>().info.mass / 3000;
+        fps.SprintSpeed -= hit.transform.gameObject.GetComponent<Object>().info.mass / 3000;
+        fps.MoveCrouchSpeed -= hit.transform.gameObject.GetComponent<Object>().info.mass / 3000;
         hit.transform.gameObject.SetActive(false);
         scoreUI.text = "score : " + player.score.ToString();
+        clipBoard.CheckTask(hit.transform.gameObject.GetComponent<Object>().info.id);
         return;
         //scoreUI.text 
     }
