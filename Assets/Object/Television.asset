@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea6fbf04764fe64d994d064ffeaff77, type: 3}
   m_Name: Television
   m_EditorClassIdentifier: 
-  score: 1000
-  mass: 100
-  isInteractable: 1
   id: 21
+  mass: 20000
+  score: 1200
+  time: 1
+  isInteractable: 1

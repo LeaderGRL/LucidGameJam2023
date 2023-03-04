@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea6fbf04764fe64d994d064ffeaff77, type: 3}
   m_Name: Poisson
   m_EditorClassIdentifier: 
-  score: 1000
-  mass: 100
-  isInteractable: 1
   id: 19
+  mass: 10
+  score: 15
+  time: 2.5
+  isInteractable: 1
