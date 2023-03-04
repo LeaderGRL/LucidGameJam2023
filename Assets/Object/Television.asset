@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Television
   m_EditorClassIdentifier: 
   score: 1000
+  mass: 100
   isInteractable: 1

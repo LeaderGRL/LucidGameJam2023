@@ -18,6 +18,7 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
     public RaycastHit hit { get; set; }
     public TextMeshProUGUI scoreUI;
     public Player player;
+    public FirstPersonController fps;
 
 
 
@@ -60,9 +61,11 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
         }
 
         player.score += hit.transform.gameObject.GetComponent<Object>().info.score;
-        Debug.Log(hit.transform.gameObject.GetComponent<Object>().info.score);
+        player.mass += hit.transform.gameObject.GetComponent<Object>().info.mass / 100;
+        fps.MoveSpeed -= hit.transform.gameObject.GetComponent<Object>().info.mass / 100;
+        fps.SprintSpeed -= hit.transform.gameObject.GetComponent<Object>().info.mass / 100;
         hit.transform.gameObject.SetActive(false);
-        scoreUI.text = player.score.ToString();
+        scoreUI.text = "score : " + player.score.ToString();
         return;
         //scoreUI.text 
     }
