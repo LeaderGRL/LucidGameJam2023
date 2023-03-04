@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -18,15 +20,25 @@ public class GameManager : MonoBehaviour
         get { return _remainingTime; }
         set { 
             _remainingTime = value;
-            RemainingTimeUI.text = value.ToString("0.00");
+            RemainingTimeUI.text = Math.Round(value, 0, MidpointRounding.AwayFromZero).ToString();
         }
     }
 
+    private GameState _actualState;
+
+    public GameState ActualState
+    {
+        get { return _actualState; }
+        set { 
+            _actualState= value;
+            RemainingTime = 60f;
+        }
+    }
     
     // Start is called before the first frame update
     void Start()
     {
-        RemainingTime = 60f;
+        ActualState = GameState.Tracking;
     }
 
     // Update is called once per frame
@@ -37,12 +49,25 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+
         RemainingTime -= Time.deltaTime;
+
         if (RemainingTime <= 0)
+        {
+            ChangeGameState();
+            return;
+        }
+    }
+
+    private void ChangeGameState()
+    {
+        
+        if (ActualState == GameState.Alarm)
         {
             GameOver();
             return;
         }
+        ActualState = ActualState + 1;
     }
 
     public void GameOver()
