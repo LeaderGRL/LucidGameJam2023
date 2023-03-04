@@ -63,6 +63,7 @@ namespace StarterAssets
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
+		 [SerializeField]private FlashLight flashLight;
 
 	
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -93,6 +94,7 @@ namespace StarterAssets
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
+
 		}
 
 		private void Start()
@@ -115,8 +117,20 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			Torche();
+
 		}
 
+		private void Torche()
+		{
+			if (_input.torch)
+			{
+				flashLight.IsOn = !flashLight.IsOn;
+				flashLight.SwitchTorch();
+				_input.torch = false;
+			}
+			
+		}
 		private void LateUpdate()
 		{
 			CameraRotation();

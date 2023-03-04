@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 217934224}
   - component: {fileID: 217934223}
   - component: {fileID: 217934222}
+  - component: {fileID: 217934225}
   m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
@@ -224,6 +225,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217934220}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &217934225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217934220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26950cca397dc1203bf7b6fbbd03f526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSource: {fileID: 1670435242}
 --- !u!1 &542508511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1405,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: flashLight
+      value: 
+      objectReference: {fileID: 217934225}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_Name

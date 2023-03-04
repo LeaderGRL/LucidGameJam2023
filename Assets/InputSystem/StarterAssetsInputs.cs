@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool torch;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -32,6 +33,10 @@ namespace StarterAssets
 			{
 				LookInput(value.Get<Vector2>());
 			}
+		}
+		public void OnTorch(InputValue value)
+		{
+			torch = value.isPressed;
 		}
 
 		public void OnJump(InputValue value)
