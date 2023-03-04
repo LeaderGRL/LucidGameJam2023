@@ -69,6 +69,19 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
         hit.transform.gameObject.SetActive(false);
         scoreUI.text = "score : " + player.score.ToString();
         clipBoard.CheckTask(hit.transform.gameObject.GetComponent<Object>().info.id);
+
+        if (fps.MoveSpeed < 1.5f)
+        {
+            fps.MoveSpeed = 1.5f;
+        }
+        if (fps.MoveCrouchSpeed < 0.75f)
+        {
+            fps.MoveCrouchSpeed = 0.75f;
+        }
+        if (fps.SprintSpeed < 2f)
+        {
+            fps.SprintSpeed = 2f;
+        }
         return;
         //scoreUI.text 
     }
