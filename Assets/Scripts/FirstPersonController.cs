@@ -66,6 +66,7 @@ namespace StarterAssets
 		private float _fallTimeoutDelta;
 		[SerializeField] private FlashLight flashLight;
 		[SerializeField] private GameObject capsule;
+		[SerializeField]private ClipBoardState clipBoard;
 
 	
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -121,7 +122,7 @@ namespace StarterAssets
 			Move();
 			Crouch();
 			Torche();
-
+			Clipboard();
 		}
 
 		private void Torche()
@@ -131,6 +132,16 @@ namespace StarterAssets
 				flashLight.IsOn = !flashLight.IsOn;
 				flashLight.SwitchTorch();
 				_input.torch = false;
+			}
+			
+		}
+		private void Clipboard()
+		{
+			if (_input.clipboard)
+			{
+				clipBoard.IsOut = !clipBoard.IsOut;
+				clipBoard.SwitchClipBoard();
+				_input.clipboard = false;
 			}
 			
 		}
