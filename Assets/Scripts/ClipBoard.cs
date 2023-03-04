@@ -76,11 +76,11 @@ public class ClipBoard : MonoBehaviour
         }
     }
 
-    public void CheckTask(int id)
+    public bool CheckTask(int id)
     {
         if (!_selectedInt.Contains<int>(id))
         {
-            return;
+            return false;
         }
         for (int i = 0; i < _selectedInt.Length; i++)
         {
@@ -88,7 +88,9 @@ public class ClipBoard : MonoBehaviour
             {
                 Debug.Log(id);
                 tasks[i].fontStyle = FontStyles.Strikethrough;
+                return true;
             }
         }
+        return true;
     }
 }

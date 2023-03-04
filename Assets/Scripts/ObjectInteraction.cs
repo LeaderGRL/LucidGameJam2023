@@ -67,8 +67,12 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
         fps.SprintSpeed -= hit.transform.gameObject.GetComponent<Object>().info.mass / 3000;
         fps.MoveCrouchSpeed -= hit.transform.gameObject.GetComponent<Object>().info.mass / 3000;
         hit.transform.gameObject.SetActive(false);
+        
+        if (clipBoard.CheckTask(hit.transform.gameObject.GetComponent<Object>().info.id))
+        {
+            player.score += hit.transform.gameObject.GetComponent<Object>().info.score / 10;
+        }
         scoreUI.text = "score : " + player.score.ToString();
-        clipBoard.CheckTask(hit.transform.gameObject.GetComponent<Object>().info.id);
 
         if (fps.MoveSpeed < 1.5f)
         {
