@@ -13,6 +13,7 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool torch;
+		public bool clipboard;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -37,6 +38,10 @@ namespace StarterAssets
 		public void OnTorch(InputValue value)
 		{
 			torch = value.isPressed;
+		}
+		public void OnClipBoard(InputValue value)
+		{
+			clipboard = value.isPressed;
 		}
 
 		public void OnJump(InputValue value)

@@ -126,6 +126,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &65401237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9015744978099164153, guid: 01211849169d8795fba619f0a4e21e93,
+    type: 3}
+  m_PrefabInstance: {fileID: 119217065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &65401238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9015744978099064793, guid: 01211849169d8795fba619f0a4e21e93,
@@ -162,22 +168,22 @@ PrefabInstance:
     - target: {fileID: 9015744978099064793, guid: 01211849169d8795fba619f0a4e21e93,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.14357266
+      value: -0.20082794
       objectReference: {fileID: 0}
     - target: {fileID: 9015744978099064793, guid: 01211849169d8795fba619f0a4e21e93,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0676768
+      value: -0.094665565
       objectReference: {fileID: 0}
     - target: {fileID: 9015744978099064793, guid: 01211849169d8795fba619f0a4e21e93,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8930769
+      value: 0.881968
       objectReference: {fileID: 0}
     - target: {fileID: 9015744978099064793, guid: 01211849169d8795fba619f0a4e21e93,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.4209756
+      value: -0.41573918
       objectReference: {fileID: 0}
     - target: {fileID: 9015744978099064793, guid: 01211849169d8795fba619f0a4e21e93,
         type: 3}
@@ -187,7 +193,7 @@ PrefabInstance:
     - target: {fileID: 9015744978099064793, guid: 01211849169d8795fba619f0a4e21e93,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 198.266
+      value: 205.656
       objectReference: {fileID: 0}
     - target: {fileID: 9015744978099064793, guid: 01211849169d8795fba619f0a4e21e93,
         type: 3}
@@ -724,6 +730,7 @@ MonoBehaviour:
   jump: 0
   sprint: 0
   torch: 0
+  clipboard: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -777,6 +784,7 @@ GameObject:
   - component: {fileID: 5885216829670671795}
   - component: {fileID: 135756641613574975}
   - component: {fileID: 4416926083347132239}
+  - component: {fileID: 5885216829670671796}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -814,6 +822,7 @@ MonoBehaviour:
   TopClamp: 89
   BottomClamp: -89
   flashLight: {fileID: 919132148036466043}
+  clipBoard: {fileID: 5885216829670671796}
 --- !u!143 &4416926083347132233
 CharacterController:
   m_ObjectHideFlags: 0
@@ -948,6 +957,19 @@ MonoBehaviour:
     m_Bits: 0
   canPush: 0
   strength: 1.1
+--- !u!114 &5885216829670671796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926083347132227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967451462ea59e4fe9f801d5ae0b9c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clipBoard: {fileID: 65401237}
 --- !u!1001 &6900671685695214863
 PrefabInstance:
   m_ObjectHideFlags: 0

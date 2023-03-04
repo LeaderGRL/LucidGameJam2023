@@ -33,7 +33,9 @@ public class ClipBoard : MonoBehaviour
         
     };
 
+
     private String[] _selected = new String[8];
+    private int[] _selectedInt = new int[8];
 
     [SerializeField] private List<TextMeshPro> tasks;
 
@@ -65,6 +67,8 @@ public class ClipBoard : MonoBehaviour
                 num = rand.Next(0, 8);
             } while (Array.IndexOf(_selected,(String) _ArrayObject.GetValue(num)) != -1);
             _selected[i] = (String) _ArrayObject.GetValue(num);
+            _selectedInt[i] = num;
+
         }
     }
 }
