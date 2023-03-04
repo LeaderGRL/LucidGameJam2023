@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea6fbf04764fe64d994d064ffeaff77, type: 3}
-  m_Name: Television
+  m_Name: Console
   m_EditorClassIdentifier: 
-  id: 21
-  mass: 20000
-  score: 1200
+  id: 13
+  mass: 1000
+  score: 500
   time: 1
   isInteractable: 1

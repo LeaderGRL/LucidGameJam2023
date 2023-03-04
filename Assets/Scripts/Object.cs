@@ -5,15 +5,10 @@ using UnityEngine;
 public class Object : MonoBehaviour
 {
     public ObjectInfo info;
-    // Start is called before the first frame update
+    public float RemainingTime;
     void Start()
     {
-        //info = new ObjectInfo();
+        RemainingTime = info.time;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

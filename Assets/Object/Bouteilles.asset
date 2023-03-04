@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea6fbf04764fe64d994d064ffeaff77, type: 3}
-  m_Name: Television
+  m_Name: Bouteilles
   m_EditorClassIdentifier: 
-  id: 21
-  mass: 20000
-  score: 1200
+  id: 5
+  mass: 6000
+  score: 300
   time: 1
   isInteractable: 1

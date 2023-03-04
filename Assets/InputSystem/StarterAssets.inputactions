@@ -43,12 +43,12 @@
                 },
                 {
                     "name": "Interact",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "70a38c3c-cf16-49e9-b4b8-ca077dbf2437",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Crouch",
