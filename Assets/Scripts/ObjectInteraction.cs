@@ -10,13 +10,15 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
 {
     [field: SerializeField] public float interactionDistance { get; set; }
     [field: SerializeField] public Transform camera { get; set; }
-    public bool isInteract { get; set; }
-
-    public RaycastHit hit { get; set; }
     public bool isInteractable { get; set; }
     [field: SerializeField] public StarterAssetsInputs input { get; set; }
     [field: SerializeField] public GameObject interactionGUI { get; set; }
     [field: SerializeField] public TextMeshProUGUI interactionText { get; set; }
+    public bool isInteract { get; set; }
+    public RaycastHit hit { get; set; }
+    public TextMeshProUGUI scoreUI;
+    public Player player;
+
 
 
     // Start is called before the first frame update
@@ -57,9 +59,12 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
             return;
         }
 
-       
-
+        player.score += hit.transform.gameObject.GetComponent<Object>().info.score;
+        Debug.Log(hit.transform.gameObject.GetComponent<Object>().info.score);
         hit.transform.gameObject.SetActive(false);
+        scoreUI.text = player.score.ToString();
+        return;
+        //scoreUI.text 
     }
 
     private void ShowInteractionUI()
