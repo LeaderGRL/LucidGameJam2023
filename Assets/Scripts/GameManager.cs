@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI RemainingTimeUI;
     public GameObject GameOverPanel;
+    public static GameManager Instance;
 
     private float _remainingTime;
 
@@ -20,6 +21,10 @@ public class GameManager : MonoBehaviour
         get { return _remainingTime; }
         set { 
             _remainingTime = value;
+            if (ActualState != GameState.Alarm)
+            {
+                return;
+            }
             RemainingTimeUI.text = Math.Round(value, 0, MidpointRounding.AwayFromZero).ToString();
         }
     }
@@ -34,14 +39,25 @@ public class GameManager : MonoBehaviour
             RemainingTime = 60f;
         }
     }
-    
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        // A : Je m'initialise
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+
     void Start()
     {
         ActualState = GameState.Tracking;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -59,7 +75,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void ChangeGameState()
+    public void ChangeGameState()
     {
         
         if (ActualState == GameState.Alarm)
@@ -68,6 +84,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         ActualState = ActualState + 1;
+        RemainingTimeUI.color = Color.red;
     }
 
     public void GameOver()
