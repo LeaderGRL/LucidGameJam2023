@@ -86,7 +86,7 @@ public class ClipBoard : MonoBehaviour
     }
     public bool CheckForEasterEgg(int id)
         {
-            if (id != 20)
+            if (id != 5)
             {
                 return false;
             }
