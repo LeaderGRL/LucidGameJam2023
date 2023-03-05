@@ -47,9 +47,8 @@ public class InteractAlarm : MonoBehaviour, IInteraction
             return;
         }
 
-        if (hit.transform.gameObject != gameObject && !hit.transform.gameObject.CompareTag("Object"))
+        if (hit.transform.gameObject != gameObject && !hit.transform.gameObject.CompareTag("Object") && gameObject.GetComponent<Television>() == null)
         {
-            interactionGUI.SetActive(false);
             return;
         }
 

@@ -101,7 +101,7 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
         {
             player.score += obj.info.score / 10;
         }
-        scoreUI.text = "score : " + player.score.ToString();
+        scoreUI.text = player.score.ToString();
         slider.value = -1;
 
         if (fps.MoveSpeed < 1.5f)
