@@ -93,4 +93,12 @@ public class ClipBoard : MonoBehaviour
         }
         return true;
     }
+    public bool CheckForEasterEgg(int id)
+        {
+            if (id != 20)
+            {
+                return false;
+            }
+            return true;
+        }
 }
