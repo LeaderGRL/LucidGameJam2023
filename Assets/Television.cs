@@ -72,6 +72,7 @@ public class Television : MonoBehaviour, IInteraction
 
         }
         GetComponent<VideoPlayer>().enabled = true;
+        GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
         interactionGUI.SetActive(false);
         _isInteracted= true;
 
