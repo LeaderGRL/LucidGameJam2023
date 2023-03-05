@@ -51,14 +51,12 @@ public class Television : MonoBehaviour, IInteraction
             return;
         }
 
-        if (hit.transform.gameObject != gameObject && !hit.transform.gameObject.CompareTag("Object") && gameObject.GetComponent<Television>() == null)
+        if (hit.transform.gameObject != gameObject && !hit.transform.gameObject.CompareTag("Object") )
         {
             interactionGUI.SetActive(false);
             return;
         }
 
-        
-        Debug.Log("test");
 
 
         ShowInteractionUI();
