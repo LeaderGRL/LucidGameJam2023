@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
         get { return _remainingTime; }
         set { 
             _remainingTime = value;
+            if (ActualState != GameState.Alarm)
+            {
+                return;
+            }
             RemainingTimeUI.text = Math.Round(value, 0, MidpointRounding.AwayFromZero).ToString();
         }
     }
