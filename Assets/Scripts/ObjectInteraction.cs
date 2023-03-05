@@ -120,6 +120,7 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
     private void ShowInteractionUI()
     {
         interactionGUI.SetActive(true);
+        interactionText.text = "Appuyer pour voler";
     }
 
 }

@@ -46,6 +46,7 @@ public class InteractAlarm : MonoBehaviour, IInteraction
 
         if (hit.transform.gameObject != gameObject)
         {
+            interactionGUI.SetActive(false);
             return;
         }
 
@@ -55,7 +56,6 @@ public class InteractAlarm : MonoBehaviour, IInteraction
         {
             return;
         }
-        Debug.Log("Test");
 
         GameManager.Instance.ChangeGameState();
         interactionGUI.SetActive(false);
@@ -66,5 +66,6 @@ public class InteractAlarm : MonoBehaviour, IInteraction
     private void ShowInteractionUI()
     {
         interactionGUI.SetActive(true);
+        interactionText.text = "Appuyer pour allumer";
     }
 }
