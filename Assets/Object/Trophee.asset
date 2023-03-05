@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea6fbf04764fe64d994d064ffeaff77, type: 3}
   m_Name: Trophee
   m_EditorClassIdentifier: 
-  id: 11
+  id: 6
   mass: 1000
   score: 10
   time: 0.5

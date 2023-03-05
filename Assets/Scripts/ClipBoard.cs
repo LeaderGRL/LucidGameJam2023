@@ -10,31 +10,22 @@ using Random = System.Random;
 
 public class ClipBoard : MonoBehaviour
 {
-    private Array _ArrayObject = new String[] {"Montre",
-        "AirPods",
-        "Telephone",
-        "Ordinateur",
-        "Tablette",
-        "Bouteilles",
-        "Cigare",
-        "Bijoux",
-        "Google Home",
-        "Vase",
-        "Tableaux",
-        "Trophee",
-        "Manette",
-        "Console",
-        "Jeux",
-        "Chandelier",
-        "Couvert de luxe",
-        "Lampe",
-        "Clef USB",
-        "Poisson",
+    private Array _ArrayObject = new String[] {"Apple Watch",
+        "Google Hoem",
+        "Micro-Ondes",
+        "Verres a shots",
+        "Tableau",
         "Chat",
-        "Television",
+        "Trophee",
+        "Air Pods",
+        "Manette",
         "Stereo",
-        "Billets"
-        
+        "Soda Stream",
+        "Bijoux",
+        "Cigarres",
+        "Carrafe",
+        "Porte Manteaux",
+        "Lampe"
     };
 
 
