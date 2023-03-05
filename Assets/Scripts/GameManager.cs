@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
         if (ActualState == GameState.Alarm)
         {
             GameOver();
+            RemainingTimeImage.SetActive(false);
             return;
         }
         RemainingTimeImage.SetActive(true);
