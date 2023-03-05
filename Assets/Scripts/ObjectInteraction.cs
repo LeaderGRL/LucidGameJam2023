@@ -15,6 +15,7 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
     [field: SerializeField] public StarterAssetsInputs input { get; set; }
     [field: SerializeField] public GameObject interactionGUI { get; set; }
     [field: SerializeField] public TextMeshProUGUI interactionText { get; set; }
+
     public bool isInteract { get; set; }
     public RaycastHit hit { get; set; }
     public TextMeshProUGUI scoreUI;
@@ -29,7 +30,7 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
     void Start()
     {
         interactionGUI.SetActive(false);
-        interactionText.text = "Press to steal";
+        interactionText.text = "Appuyer pour voler";
     }
 
     // Update is called once per frame
@@ -38,6 +39,7 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
         RaycastHit hitInfo;
         isInteractable = Physics.Raycast(camera.position, camera.TransformDirection(Vector3.forward), out hitInfo, interactionDistance);
         hit = hitInfo;
+
         Interact();
     }
 
@@ -46,7 +48,6 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
         if (!isInteractable)
         {
             interactionGUI.SetActive(false);
-            input.interact = false;
             slider.value = -1;
 
             return;
@@ -54,9 +55,9 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
         
         if (!hit.transform.gameObject.CompareTag("Object"))
         {
-            input.interact = false;
             return;
         }
+
 
         ShowInteractionUI();
 

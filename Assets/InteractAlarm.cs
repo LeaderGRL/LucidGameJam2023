@@ -17,6 +17,7 @@ public class InteractAlarm : MonoBehaviour, IInteraction
 
     private bool _isInteracted;
 
+
     private void Start()
     {
         _isInteracted = false;
@@ -27,7 +28,8 @@ public class InteractAlarm : MonoBehaviour, IInteraction
         RaycastHit hitInfo;
         isInteractable = Physics.Raycast(camera.position, camera.TransformDirection(Vector3.forward), out hitInfo, interactionDistance);
         hit = hitInfo;
-        isInteract = input.interact;
+        
+
         Interact();
     }
 
@@ -35,6 +37,7 @@ public class InteractAlarm : MonoBehaviour, IInteraction
     {
         if (_isInteracted || GameManager.Instance.ActualState == GameState.Alarm)
         {
+
             return;
         }
 
@@ -44,15 +47,20 @@ public class InteractAlarm : MonoBehaviour, IInteraction
             return;
         }
 
-        if (hit.transform.gameObject != gameObject)
+        if (hit.transform.gameObject != gameObject && !hit.transform.gameObject.CompareTag("Object"))
         {
             interactionGUI.SetActive(false);
             return;
         }
 
+        if (hit.transform.gameObject.CompareTag("Object"))
+        {
+            return;
+        }
+
         ShowInteractionUI();
 
-        if (!isInteract)
+        if (!input.interact)
         {
             return;
         }
