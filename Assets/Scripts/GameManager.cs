@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI RemainingTimeUI;
     public GameObject GameOverPanel;
     public static GameManager Instance;
+    public GameObject RemainingTimeImage;
+    public AudioSource audioSource;
 
     private float _remainingTime;
 
@@ -83,8 +85,10 @@ public class GameManager : MonoBehaviour
             GameOver();
             return;
         }
+        RemainingTimeImage.SetActive(true);
         ActualState = ActualState + 1;
         RemainingTimeUI.color = Color.red;
+        audioSource.enabled = true;
     }
 
     public void GameOver()
@@ -93,5 +97,6 @@ public class GameManager : MonoBehaviour
         isEnd = true;
         GameOverPanel.SetActive(true);
         Time.timeScale = 0;
+        audioSource.enabled = false;
     }
 }

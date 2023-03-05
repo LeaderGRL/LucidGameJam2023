@@ -36,7 +36,7 @@ public class Television : MonoBehaviour, IInteraction
     private void Interact()
     {
         
-        if (_isInteracted || GameManager.Instance.ActualState == GameState.Alarm)
+        if (_isInteracted )
         {
             return;
         }
@@ -66,9 +66,14 @@ public class Television : MonoBehaviour, IInteraction
             return;
         }
 
-        GameManager.Instance.ChangeGameState();
+        if (GameManager.Instance.ActualState == GameState.Tracking)
+        {
+            GameManager.Instance.ChangeGameState();
+
+        }
         transform.GetChild(0).GetComponent<VideoPlayer>().enabled = true;
         interactionGUI.SetActive(false);
+        _isInteracted= true;
 
 
     }

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
     public GameObject TutoPanel;
+    public GameObject Buttons;
 
     public void Play()
     {
@@ -17,10 +18,17 @@ public class StartMenu : MonoBehaviour
     public void Tuto()
     {
         TutoPanel.SetActive(true);
+        Buttons.SetActive(false);
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void ReturnFromTuto()
+    {
+        TutoPanel.SetActive(false);
+        Buttons.SetActive(true);
     }
 }
