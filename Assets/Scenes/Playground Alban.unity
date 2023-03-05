@@ -5600,7 +5600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787876102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.32, y: 2.4147463, z: -7.06}
+  m_LocalPosition: {x: 9.32, y: 1.51, z: -7.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8749,7 +8749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164254928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.79, y: 2.4147463, z: -7.06}
+  m_LocalPosition: {x: -12.79, y: 1.51, z: -7.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12120,7 +12120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1633175006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.79, y: 2.4147463, z: 8.05}
+  m_LocalPosition: {x: -12.79, y: 1.51, z: 11.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12348,7 +12348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659753484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.68, y: 2.4147463, z: 7.91}
+  m_LocalPosition: {x: 11.08, y: 1.51, z: 11.009999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12868,7 +12868,9 @@ MonoBehaviour:
   - {fileID: 1633175006}
   - {fileID: 1659753484}
   - {fileID: 787876102}
+  move: {x: 0, y: 0, z: 0}
   light: {fileID: 1752344003}
+  OtherCollider: {fileID: 2022723327}
 --- !u!65 &1722864921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12890,7 +12892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722864919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15, y: 1.51, z: -6.74}
+  m_LocalPosition: {x: -15, y: 1.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15008,7 +15010,9 @@ MonoBehaviour:
   - {fileID: 1633175006}
   - {fileID: 1659753484}
   - {fileID: 787876102}
+  move: {x: 0, y: 0, z: 0}
   light: {fileID: 1752344003}
+  OtherCollider: {fileID: 1722864920}
 --- !u!65 &2022723328
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15030,7 +15034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022723326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.14, y: 1.51, z: -7.89}
+  m_LocalPosition: {x: 15.83, y: 1.51, z: -0.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
