@@ -15,6 +15,7 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
     [field: SerializeField] public StarterAssetsInputs input { get; set; }
     [field: SerializeField] public GameObject interactionGUI { get; set; }
     [field: SerializeField] public TextMeshProUGUI interactionText { get; set; }
+    [SerializeField] private GameObject wall;
     public bool isInteract { get; set; }
     public RaycastHit hit { get; set; }
     public TextMeshProUGUI scoreUI;
@@ -48,7 +49,6 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
             interactionGUI.SetActive(false);
             input.interact = false;
             slider.value = -1;
-
             return;
         }
         
@@ -99,6 +99,11 @@ public class ObjectInteraction : MonoBehaviour, IInteraction
         if (clipBoard.CheckTask(obj.info.id))
         {
             player.score += obj.info.score / 10;
+        }
+
+        if (clipBoard.CheckForEasterEgg(obj.info.id))
+        {
+            wall.SetActive(false);
         }
         scoreUI.text = "score : " + player.score.ToString();
         slider.value = -1;
